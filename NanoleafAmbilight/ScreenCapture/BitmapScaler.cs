@@ -6,7 +6,7 @@ namespace NanoleafAmbilight.ScreenCapture
 {
     public static class BitmapScaler
     {
-        private const int MINIMUM_DIMENSION = 100;
+        private const int MINIMUM_DIMENSION = 50;
         
         /// <summary>
         /// Scales a bitmap down to minimum dimensions.
