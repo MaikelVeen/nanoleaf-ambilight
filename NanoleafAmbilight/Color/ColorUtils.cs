@@ -168,18 +168,20 @@ namespace NanoleafAmbilight.Color
         /// <returns></returns>
         public static uint ColorToUInt(System.Drawing.Color color)
         {
-            return (uint)((color.A << 24) | (color.R << 16) |
+            return (uint)((color.R << 16) |
                           (color.G << 8)  | (color.B << 0));
         }
 
         /// <summary>
         /// Convert a color to unsigned integer
         /// </summary>
-        /// <param name="color"></param>
+        /// <param name="r"></param>
+        /// <param name="g"></param>
+        /// <param name="b"></param>
         /// <returns></returns>
-        public static uint ColorToUInt(byte a, byte r, byte g, byte b)
+        public static uint ColorToUInt(byte r, byte g, byte b)
         {
-            return (uint)((a << 24) | (r<< 16) |
+            return (uint)((r<< 16) |
                           (g << 8)  | (b << 0));
         }
         
@@ -190,18 +192,20 @@ namespace NanoleafAmbilight.Color
         /// <returns></returns>
         public static int ColorToInt(System.Drawing.Color color)
         {
-            return (int)((color.A << 24) | (color.R << 16) |
+            return (int)((color.R << 16) |
                           (color.G << 8)  | (color.B << 0));
         }
 
         /// <summary>
         /// Convert a color to integer
         /// </summary>
-        /// <param name="color"></param>
+        /// <param name="r"></param>
+        /// <param name="g"></param>
+        /// <param name="b"></param>
         /// <returns></returns>
-        public static int ColorToInt(byte a, byte r, byte g, byte b)
+        public static int ColorToInt(byte r, byte g, byte b)
         {
-            return (int)((a << 24) | (r<< 16) |
+            return (int)( (r<< 16) |
                           (g << 8)  | (b << 0));
         }
         

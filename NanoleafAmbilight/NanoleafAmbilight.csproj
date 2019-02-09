@@ -52,7 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Color\BitmapUtils.cs" />
-    <Compile Include="Color\ColorCutQuantizer.cs" />
+    <Compile Include="Color\ColorExtractor.cs" />
     <Compile Include="Color\ColorHistogram.cs" />
     <Compile Include="Color\ColorUtils.cs" />
     <Compile Include="Color\HSLColor.cs" />
