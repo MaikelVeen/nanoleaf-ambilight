@@ -1,9 +1,8 @@
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 
-namespace NanoleafAmbilight.ColorGenerator
+namespace NanoleafAmbilight.Color
 {
     public class ColorUtils
     {
@@ -35,7 +34,7 @@ namespace NanoleafAmbilight.ColorGenerator
         /// </summary>
         /// <param name="rgbColors"></param>
         /// <returns></returns>
-        public static IEnumerable<HSLColor> RGBtoHSL(IEnumerable<Color> rgbColors)
+        public static IEnumerable<HSLColor> RGBtoHSL(IEnumerable<System.Drawing.Color> rgbColors)
         {
             return Transformation(rgbColors, RGBToHSLpixel);
         }
@@ -45,22 +44,17 @@ namespace NanoleafAmbilight.ColorGenerator
         /// </summary>
         /// <param name="hslColors"></param>
         /// <returns></returns>
-        public static IEnumerable<Color> HSLtoRGB(IEnumerable<HSLColor> hslColors)
+        public static IEnumerable<System.Drawing.Color> HSLtoRGB(IEnumerable<HSLColor> hslColors)
         {
             return Transformation(hslColors, HslToRGBpixel);
         }
-
-       /* public static uint[] ColorToUints(Color[] color)
-        {
-            
-        }*/
 
         /// <summary>
         /// Converts a RGB to a HSL pixel
         /// </summary>
         /// <param name="color"></param>
         /// <returns></returns>
-        public static HSLColor RGBToHSLpixel(Color color)
+        public static HSLColor RGBToHSLpixel(System.Drawing.Color color)
         {
             float normalizedR = (color.R / 255f);
             float normalizedG = (color.G / 255f);
@@ -105,7 +99,7 @@ namespace NanoleafAmbilight.ColorGenerator
         /// </summary>
         /// <param name="color"></param>
         /// <returns></returns>
-        public static Color HslToRGBpixel(HSLColor color)
+        public static System.Drawing.Color HslToRGBpixel(HSLColor color)
         {
             float Saturation = color.S;
             float Luminosity = color.L;
@@ -147,7 +141,7 @@ namespace NanoleafAmbilight.ColorGenerator
                 b = (byte) Math.Round(tb * 255d);
             }
 
-            return Color.FromArgb(r, g, b);
+            return System.Drawing.Color.FromArgb(r, g, b);
         }
         
         /// <summary>
@@ -165,6 +159,78 @@ namespace NanoleafAmbilight.ColorGenerator
             if (2.0d * c < 1.0d) return t2;
             if (3.0d * c < 2.0d) return t1 + (t2 - t1) * (2.0d / 3.0d - c) * 6.0d;
             return t1;
+        }
+        
+        /// <summary>
+        /// Convert a color to unsigned integer
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public static uint ColorToUInt(System.Drawing.Color color)
+        {
+            return (uint)((color.A << 24) | (color.R << 16) |
+                          (color.G << 8)  | (color.B << 0));
+        }
+
+        /// <summary>
+        /// Convert a color to unsigned integer
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public static uint ColorToUInt(byte a, byte r, byte g, byte b)
+        {
+            return (uint)((a << 24) | (r<< 16) |
+                          (g << 8)  | (b << 0));
+        }
+        
+        /// <summary>
+        /// Convert a color to integer
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public static int ColorToInt(System.Drawing.Color color)
+        {
+            return (int)((color.A << 24) | (color.R << 16) |
+                          (color.G << 8)  | (color.B << 0));
+        }
+
+        /// <summary>
+        /// Convert a color to integer
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public static int ColorToInt(byte a, byte r, byte g, byte b)
+        {
+            return (int)((a << 24) | (r<< 16) |
+                          (g << 8)  | (b << 0));
+        }
+        
+        /// <summary>
+        /// Convert an integer to a color
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public static System.Drawing.Color UIntToColor(uint color)
+        {
+            byte a = (byte)(color >> 24);
+            byte r = (byte)(color >> 16);
+            byte g = (byte)(color >> 8);
+            byte b = (byte)(color >> 0);
+            return System.Drawing.Color.FromArgb(a, r, g, b);
+        }
+        
+        /// <summary>
+        /// Convert an integer to a color
+        /// </summary>
+        /// <param name="color"></param>
+        /// <returns></returns>
+        public static System.Drawing.Color UIntToColor(int color)
+        {
+            byte a = (byte)(color >> 24);
+            byte r = (byte)(color >> 16);
+            byte g = (byte)(color >> 8);
+            byte b = (byte)(color >> 0);
+            return System.Drawing.Color.FromArgb(a, r, g, b);
         }
     }
 }
