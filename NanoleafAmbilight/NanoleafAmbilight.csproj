@@ -59,8 +59,7 @@
     <Compile Include="Color\Pallete.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScreenCapture\BitmapScaler.cs" />
-    <Compile Include="ScreenCapture\ScreenDuplicater.cs" />
+    <Compile Include="Screen\ScreenDuplicater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

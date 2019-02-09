@@ -1,3 +1,4 @@
+using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace NanoleafAmbilight.Color
     /// </summary>
     public static class BitmapUtils
     {
+        private const int MinimumDimension = 50;
+        
         /// <summary>
         /// Get all the colors in an bitmap as unsigned integer
         /// </summary>
@@ -35,6 +38,26 @@ namespace NanoleafAmbilight.Color
             }
 
             return pixels;
+        }
+        
+        /// <summary>
+        /// Scales a bitmap down to minimum dimensions.
+        /// Small bitmap will be returned for manipulation
+        /// </summary>
+        /// <param name="bitmap"></param>
+        /// <returns></returns>
+        public static Bitmap ScaleDown(this Bitmap bitmap)
+        {
+            int minimumDimension = Math.Min(bitmap.Width, bitmap.Height);
+            if (minimumDimension <= MinimumDimension)
+            {
+                return bitmap;
+            }
+
+            float scaleRatio = MinimumDimension / (float) minimumDimension;
+            Bitmap newBitmap = new Bitmap(bitmap, (int) Math.Round(bitmap.Width * scaleRatio),
+                (int) Math.Round(bitmap.Height * scaleRatio));
+            return newBitmap;
         }
 
         /// <summary>
