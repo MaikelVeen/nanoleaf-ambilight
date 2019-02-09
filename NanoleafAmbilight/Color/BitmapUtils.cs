@@ -34,7 +34,7 @@ namespace NanoleafAmbilight.Color
 
             for (int i = 0, j = 0; i < bytes.Length; i += 4, j++)
             {
-                pixels[j] = ColorUtils.ColorToUInt(bytes[i], bytes[i + 1], bytes[i + 2], bytes[i + 3]);
+                pixels[j] = ColorUtils.ColorToUInt( bytes[i + 1], bytes[i + 2], bytes[i + 3]);
             }
 
             return pixels;
