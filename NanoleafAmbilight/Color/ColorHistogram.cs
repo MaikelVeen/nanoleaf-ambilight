@@ -1,7 +1,6 @@
 using System;
-using System.Drawing;
 
-namespace NanoleafAmbilight.ColorGenerator
+namespace NanoleafAmbilight.Color
 {
     public class ColorHistogram
     {

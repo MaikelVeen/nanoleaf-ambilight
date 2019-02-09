@@ -51,11 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ColorGenerator\ColorCutQuantizer.cs" />
-    <Compile Include="ColorGenerator\ColorHistogram.cs" />
-    <Compile Include="ColorGenerator\ColorUtils.cs" />
-    <Compile Include="ColorGenerator\HSLColor.cs" />
-    <Compile Include="ColorGenerator\ProminentColorGenerator.cs" />
+    <Compile Include="Color\BitmapUtils.cs" />
+    <Compile Include="Color\ColorCutQuantizer.cs" />
+    <Compile Include="Color\ColorHistogram.cs" />
+    <Compile Include="Color\ColorUtils.cs" />
+    <Compile Include="Color\HSLColor.cs" />
+    <Compile Include="Color\Pallete.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ScreenCapture\BitmapScaler.cs" />

@@ -1,4 +1,4 @@
-namespace NanoleafAmbilight.ColorGenerator
+namespace NanoleafAmbilight.Color
 {
     public class ColorCutQuantizer
     {

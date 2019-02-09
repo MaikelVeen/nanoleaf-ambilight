@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using NanoleafAmbilight.ColorGenerator;
+using NanoleafAmbilight.Color;
 using NanoleafAmbilight.ScreenCapture;
 
 namespace NanoleafAmbilight
@@ -12,14 +12,10 @@ namespace NanoleafAmbilight
         {
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            //Test code for scaling down of bitmap
-            Bitmap test = Bitmap.FromFile("C:/Users/Maikel/AppData/Roaming/.minecraft/screenshots/2019-02-04_13.45.25.png") as Bitmap;
-            Bitmap newB = BitmapScaler.ScaleBitmapDown(test);
-            //newB.Save("test.jpg");
-            ProminentColorGenerator gen = new ProminentColorGenerator();
-            Color rgb = gen.GetColor(newB);
+            Bitmap test = Bitmap.FromFile("C:/Users/Maikel/Documents/Work/Projects/nanoleaf-ambilight/NanoleafAmbilight/distinctColorTest2.png") as Bitmap;
+           
             stopwatch.Stop();;
-            Console.WriteLine(rgb.ToString() +  $"returned in {stopwatch.ElapsedMilliseconds}");
+            Console.WriteLine(  $"returned in {stopwatch.ElapsedMilliseconds}");
         }
     }
 }
