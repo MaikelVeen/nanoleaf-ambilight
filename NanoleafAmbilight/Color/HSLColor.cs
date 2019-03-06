@@ -1,6 +1,6 @@
 namespace NanoleafAmbilight.Color
 {
-    public struct HSLColor
+    public class HSLColor
     {
         public HSLColor(float h, float s, float l)
         {
