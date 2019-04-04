@@ -1,17 +1,35 @@
-﻿using System.Drawing;
+﻿using System;
+using System.Diagnostics;
+using System.Drawing;
+using System.Threading.Tasks;
+using NanoleafAmbilight.Color;
+using NanoleafAmbilight.Nanoleaf;
 using NanoleafAmbilight.ScreenCapture;
 
 namespace NanoleafAmbilight
 {
-    internal class Program
+    internal static class Program
     {
         public static void Main(string[] args)
         {
-            // Test code for scaling down of bitmap
-            Bitmap test = Bitmap.FromFile("C:/Users/Maikel/AppData/Roaming/.minecraft/screenshots/2019-02-04_13.45.25.png") as Bitmap;
-            Bitmap newB = BitmapScaler.ScaleBitmapDown(test);
+            /*Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
+
+            Bitmap loadedBitmap =
+                Image.FromFile("C:/Users/Maikel/RiderProjects/NanoleafDesktopAmbilight/NanoleafAmbilight/distinctColorTest2.png") as Bitmap;
+
+            ColorHistogram colorHistogram = new ColorHistogram(loadedBitmap.GetBitmapColors());
+            Console.WriteLine(colorHistogram.);
+            stopwatch.Stop();
+            Console.WriteLine($"Milliseconds elapsed: {stopwatch.ElapsedMilliseconds}");*/
+
+            //string token = NanoleafClient.GetAuthToken("http://192.168.192.50:16021");
+            Stopwatch stopwatch = new Stopwatch();
+            HSBColor color = new HSBColor(39,99,99);
             
-            newB.Save("test.jpg");
+            NanoleafClient nanoleafClient = new NanoleafClient("http://192.168.192.50:16021");
+            nanoleafClient.Start();
+           
         }
     }
 }
